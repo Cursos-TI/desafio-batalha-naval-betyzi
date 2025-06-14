@@ -54,5 +54,7 @@ int main() {
         printf("\n");
     }
 
+    printf("Novo commit");
+    
     return 0;
 }
