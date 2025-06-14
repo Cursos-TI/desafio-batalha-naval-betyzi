@@ -6,12 +6,12 @@
 
 int main() {
 
-// Neste nivel apenas criei o tabuleiro 10x10, com navios ja posicionados no tabuleiro (a água é representada por "0" e os navios por "3")
+//Adicionei letras e números para identificar as linhas e colunas mais facilmente
 
-    // Tamanho do tabuleiro e dos navios diretamente no código
+     // Tamanho do tabuleiro e dos navios diretamente no código
     int tabuleiro[10][10];  // Tabuleiro 10x10
-    int navio_horizontal[3] = {3, 3, 3}; // Navio horizontal com 3 partes
-    int navio_vertical[3] = {3, 3, 3};   // Navio vertical com 3 partes
+    int navio_horizontal[3] = {3, 3, 3};
+    int navio_vertical[3] = {3, 3, 3};
 
     // Primeiro inicializa o tabuleiro com 0 (água)
     for (int i = 0; i < 10; i++) {
@@ -20,14 +20,14 @@ int main() {
         }
     }
 
-    // Depois colocamos as coordenadas iniciais dos navios
+     // Depois colocamos as coordenadas iniciais dos navios
     int linha_horizontal = 2;
     int coluna_horizontal = 4;
 
     int linha_vertical = 5;
     int coluna_vertical = 7;
 
-    //Agora algumas verificações para evitar erros
+ //Agora algumas verificações para evitar erros
 
     // Aqui verificamos se o navio horizontal cabe no tabuleiro
     if (coluna_horizontal + 3 <= 10) {
@@ -45,9 +45,12 @@ int main() {
         }
     }
 
-    // Por fim exibimos o tabuleiro
-    printf("Tabuleiro de Batalha Naval - Nível Novato 🚢\n\n");
+    // Exibe cabeçalho com letras das colunas
+    printf("    A B C D E F G H I J\n");
+
+    // Por fim exibimos o tabuleiro com números e linhas 
     for (int i = 0; i < 10; i++) {
+        printf("%2d  ", i + 1);  // Números das linhas (1 a 10)
         for (int j = 0; j < 10; j++) {
             printf("%d ", tabuleiro[i][j]);
         }
@@ -55,6 +58,6 @@ int main() {
     }
 
     printf("Novo commit");
-    
+
     return 0;
 }
