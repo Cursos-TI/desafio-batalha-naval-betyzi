@@ -6,57 +6,52 @@
 
 int main() {
 
-//Adicionei letras e números para identificar as linhas e colunas mais facilmente
+//Para este nível aprimorei para para adionar barcos (3) em posições diagonais além de vertical e horizontal
 
-     // Tamanho do tabuleiro e dos navios diretamente no código
-    int tabuleiro[10][10];  // Tabuleiro 10x10
-    int navio_horizontal[3] = {3, 3, 3};
-    int navio_vertical[3] = {3, 3, 3};
+    //Criando o tabuleiro 10x10
+    int tabuleiro[10][10];
 
-    // Primeiro inicializa o tabuleiro com 0 (água)
+    // Inicializando o tabuleiro com água (0)
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             tabuleiro[i][j] = 0;
         }
     }
 
-     // Depois colocamos as coordenadas iniciais dos navios
-    int linha_horizontal = 2;
-    int coluna_horizontal = 4;
+    // Colocando o navio horizontal (tamanho 3)
+    // Começa na linha 2 (índice 1), coluna C (índice 2)
+    tabuleiro[1][2] = 3;
+    tabuleiro[1][3] = 3;
+    tabuleiro[1][4] = 3;
 
-    int linha_vertical = 5;
-    int coluna_vertical = 7;
+    // Colocando o navio vertical (tamanho 3)
+    // Começa na linha 5 (índice 4), coluna G (índice 6)
+    tabuleiro[4][6] = 3;
+    tabuleiro[5][6] = 3;
+    tabuleiro[6][6] = 3;
 
- //Agora algumas verificações para evitar erros
+    // Agora o primeiro navio diagonal ↘ (tamanho 3)
+    // Começa na linha 1 (índice 0), coluna A (índice 0)
+    tabuleiro[0][0] = 3;
+    tabuleiro[1][1] = 3;
+    tabuleiro[2][2] = 3;
 
-    // Aqui verificamos se o navio horizontal cabe no tabuleiro
-    if (coluna_horizontal + 3 <= 10) {
-        for (int i = 0; i < 3; i++) {
-            tabuleiro[linha_horizontal][coluna_horizontal + i] = navio_horizontal[i];
-        }
-    }
+    // Por fim, o segundo navio diagonal ↙ (tamanho 3)
+    // Começa na linha 1 (índice 0), coluna J (índice 9)
+    tabuleiro[0][9] = 3;
+    tabuleiro[1][8] = 3;
+    tabuleiro[2][7] = 3;
 
-    // Aqui vrificamos se o navio vertical cabe no tabuleiro e se não há sobreposição
-    if (linha_vertical + 3 <= 10) {
-        for (int i = 0; i < 3; i++) {
-            if (tabuleiro[linha_vertical + i][coluna_vertical] == 0) {
-                tabuleiro[linha_vertical + i][coluna_vertical] = navio_vertical[i];
-            }
-        }
-    }
-
-    // Exibe cabeçalho com letras das colunas
+    // Exibindo o tabuleiro com letras (A-J) e números (1-10) tudo junto 
     printf("    A B C D E F G H I J\n");
-
-    // Por fim exibimos o tabuleiro com números e linhas 
     for (int i = 0; i < 10; i++) {
-        printf("%2d  ", i + 1);  // Números das linhas (1 a 10)
+        printf("%2d  ", i + 1);
         for (int j = 0; j < 10; j++) {
             printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
-
+    
     printf("Novo commit2");
 
     return 0;
